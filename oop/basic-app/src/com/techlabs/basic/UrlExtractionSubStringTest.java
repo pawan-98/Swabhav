@@ -1,6 +1,6 @@
 package com.techlabs.basic;
 
-public class urlExtractionSubStringTest {
+public class UrlExtractionSubStringTest {
 
 	public static void main(String[] args) {
 

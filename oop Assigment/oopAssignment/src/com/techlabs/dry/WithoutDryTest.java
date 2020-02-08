@@ -1,6 +1,6 @@
-package dry;
+package com.techlabs.dry;
 
-public class withoutDryTest {
+public class WithoutDryTest {
 	public static void main(String args[]) {
 		int numOne = 1, numTwo = 2, numThree = 3, numFour = 4, numFive = 5, numSix = 6, numSeven = 7, numEight = 8,
 				resultOne, resultTwo, resultThree, resultFour;

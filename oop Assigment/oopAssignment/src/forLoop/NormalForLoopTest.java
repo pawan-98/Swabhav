@@ -1,6 +1,6 @@
 package forLoop;
 
-public class normalForLoopTest {
+public class NormalForLoopTest {
 	public static void main(String args[]) {
 		int[] array = { 1, 4, 9, 16, 25, 36 };
 

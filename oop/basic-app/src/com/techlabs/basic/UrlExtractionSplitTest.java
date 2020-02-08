@@ -2,7 +2,7 @@ package com.techlabs.basic;
 
 import java.util.Arrays;
 
-public class urlExtractionSplitTest {
+public class UrlExtractionSplitTest {
 
 	public static void main(String args[]) {
 		//String url = "https://developer=pawan&role=architect";

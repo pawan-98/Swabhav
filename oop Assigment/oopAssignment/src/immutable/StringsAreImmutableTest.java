@@ -1,6 +1,6 @@
 package immutable;
 
-public class stringsAreImmutableTest {
+public class StringsAreImmutableTest {
 	public static void main(String args[]) {
 		String name = "Pawan";
 		name.concat(" Chhabria");

@@ -1,6 +1,6 @@
 package magicNumber;
 
-public class calculateAreaOfACircleTest {
+public class CalculateAreaOfACircleTest {
 
 	public static void main(String args[]) {
 		calculate(7);

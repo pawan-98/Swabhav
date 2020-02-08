@@ -1,6 +1,6 @@
 package com.techlabs.basic;
 
-public class stringArrayTest {
+public class StringArrayTest {
 
 	public static void main(String args[]) {
 		int tempInt = 0;

@@ -1,6 +1,6 @@
 package passByValue;
 
-public class passByValueTest {
+public class PassByValueTest {
 	public static void main(String[] args) {
 		int temp = 7;
 		change(temp);

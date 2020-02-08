@@ -1,6 +1,6 @@
 package com.techlabs.basic;
 
-public class overloadingTest {
+public class OverloadingTest {
 
 	public static void main(String[] args) {
 		System.err.println("hello world");

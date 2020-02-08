@@ -1,6 +1,6 @@
-package dry;
+package com.techlabs.dry;
 
-public class withDryTest {
+public class WithDryTest {
 
 	public static void main(String Args[]) {
 

@@ -22,7 +22,7 @@ class Test {
 
 }
 
-public class reflectionTest {
+public class ReflectionTest {
 	public static void main(String args[]) throws Exception {
 		Test objectOfTest = new Test();
 		Class cls = objectOfTest.getClass();
