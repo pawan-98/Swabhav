@@ -2,13 +2,13 @@ package com.techlabs.gettersetter;
 
 import java.lang.reflect.Method;
 
-public class ReflectionOnGetterSetter {
+public class ReflectionOnGetterSetterTest {
 	public static void main(String args[]) throws Exception {
 		Person objectOfPerson = new Person();
 		Class cls = objectOfPerson.getClass();
 
 		Method[] methods = cls.getMethods();
-		System.out.println("Printing getters");
+		System.out.println("Printing setters");
 		for (int i = 0; i < methods.length; i++) {
 			if (methods[i].getName().startsWith("set")) {
 				System.out.println(methods[i].getName());
