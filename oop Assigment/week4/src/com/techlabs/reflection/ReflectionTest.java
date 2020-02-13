@@ -8,6 +8,7 @@ public class ReflectionTest {
 
 	public static void main(String args[]) throws Exception {
 		Scanner sc = new Scanner(System.in);
+		//eg inputs:-"java.lang.System"
 		System.out.println("Enter the path:-");
 		String input = sc.nextLine();
 
