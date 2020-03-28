@@ -1,13 +1,15 @@
 package com.techlabs.model;
 
-public class Student {
-
+public class StudentSecondCase {
 	private String name;
 	private float cgpa;
 	private int id;
-	private static int count = 0;
+	private static int count;
+	static {
+		count= 0;
+	}
 
-	public Student(int id, String name, float cgpa) {
+	public StudentSecondCase(int id, String name, float cgpa) {
 		this.id = id;
 		this.name = name;
 		this.cgpa = cgpa;
@@ -15,7 +17,7 @@ public class Student {
 
 	}
 
-	public Student(int id, String name) {
+	public StudentSecondCase(int id, String name) {
 
 		this(id, name, 7.0f);
 	}
@@ -37,4 +39,5 @@ public class Student {
 	public int getCount() {
 		return count;
 	}
+
 }
