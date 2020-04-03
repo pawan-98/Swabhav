@@ -1,4 +1,4 @@
-package com.techlabs.model;
+package com.techlab.model;
 
 public class Student {
 

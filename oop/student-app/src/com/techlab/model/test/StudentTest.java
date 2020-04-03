@@ -1,6 +1,6 @@
-package com.techlabs.model.test;
+package com.techlab.model.test;
 
-import com.techlabs.model.Student;
+import com.techlab.model.Student;
 
 public class StudentTest {
 
@@ -9,10 +9,10 @@ public class StudentTest {
 		System.out.println(s1.getCount());
 
 		Student s2 = new Student(101,"xyz");
-		System.out.println(s1.getCount());
+		System.out.println(s2.getCount());
 
 		Student s3 = new Student(101,"lmno",8.0f);
-		System.out.println(s1.getCount());
+		System.out.println(s3.getCount());
 		
 	}
 	

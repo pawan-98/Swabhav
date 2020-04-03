@@ -16,5 +16,6 @@ public class AccountTest {
 		a2.deposit(600);
 		
 		System.out.println("Number of trnasactions:- "+ Account.getNoOfTransaction());
+		
 	}
 }

@@ -1,6 +1,6 @@
-package com.techlabs.model.test;
+package com.techlab.model.test;
 
-import com.techlabs.model.Student;
+import com.techlab.model.Student;
 public class StudentSecondTest {
 	
 	public static void main(String args[]) {
