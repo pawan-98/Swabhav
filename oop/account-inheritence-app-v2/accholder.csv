@@ -1,0 +1,6 @@
+type,accno,name,balance,createdOn,age
+S,101,pawan,7000.0,Sat Mar 19 00:00:00 IST 2011,8
+C,102,amit,10000.0,Mon May 16 00:00:00 IST 2011,9
+C,103,prem,5000.0,Wed May 26 00:00:00 IST 2010,10
+C,104,sonia,6000.0,Tue May 26 00:00:00 IST 2009,52
+C,104,karan,9000.0,Mon May 26 00:00:00 IST 2008,112
