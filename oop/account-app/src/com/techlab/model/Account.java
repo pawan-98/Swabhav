@@ -14,7 +14,7 @@ public class Account {
 	public void withdraw(double amount) {
 		if (balance > MINIMUM_BALANCE) {
 			balance = balance - amount;
-			System.out.println("Current balance after withdrawing :- " + balance);
+			//System.out.println("Current balance after withdrawing :- " + balance);
 			noOfTransactions=noOfTransactions+1;
 		}
 	}
@@ -22,7 +22,7 @@ public class Account {
 	public void deposit(double amount) {
 
 		balance = balance + amount;
-		System.out.println("Current balance after depositing :- " + balance);
+		//System.out.println("Current balance after depositing :- " + balance);
 		noOfTransactions=noOfTransactions+1;
 	}
 	public static void setMinimumBalance(int minBlanace) {
@@ -31,6 +31,9 @@ public class Account {
 	public static int getNoOfTransaction() {
 		return noOfTransactions;	
 		}
+	public double getBalance() {
+		return balance;
+	}
 	
 
 }

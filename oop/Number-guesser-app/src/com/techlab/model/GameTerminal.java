@@ -1,9 +1,9 @@
-package com.techlabs.model;
+package com.techlab.model;
 
 import java.util.Random;
 import java.util.Scanner;
 
-import com.techlabs.model.Game;
+import com.techlab.model.Game;
 
 public class GameTerminal extends Game {
 

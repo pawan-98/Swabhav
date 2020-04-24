@@ -1,4 +1,4 @@
-package com.techlabs.model;
+package com.techlab.model;
 
 import java.util.Random;
 
@@ -46,6 +46,8 @@ public class Game {
 		return score;
 	}	
 
-
+	public int getRandomNumber() {
+		return randomNumber;
+	}
 
 }
