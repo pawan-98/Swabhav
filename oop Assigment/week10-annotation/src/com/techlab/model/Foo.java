@@ -1,6 +1,10 @@
 package com.techlab.model;
 
 public class Foo {
+	@Bar
+	public void printBarAnnotation() {
+		System.out.println("@Bar is being run");
+	}
 	
 	@UnitTestCase
 	public boolean m1() {
