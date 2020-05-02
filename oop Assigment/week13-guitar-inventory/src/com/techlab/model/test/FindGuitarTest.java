@@ -17,7 +17,6 @@ import com.techlab.model.Wood;
 
 public class FindGuitarTest {
 	public static void main(String[] args) {
-	    // Set up Rick's inventory
 	    Inventory inventory = new Inventory();
 	    initializeInventory(inventory);
 
@@ -37,8 +36,9 @@ public class FindGuitarTest {
 	        for (Iterator j = spec.getProperties().keySet().iterator(); 
 	             j.hasNext(); ) {
 	          String propertyName = (String)j.next();
-	          if (propertyName.equals("instrumentType"))
+	          if (propertyName.equals("instrumentType")) {
 	            continue;
+	            }
 	          System.out.println("    " + propertyName + ": " +
 	            spec.getProperty(propertyName));
 	        }  
@@ -47,15 +47,15 @@ public class FindGuitarTest {
 	          instrument.getPrice() + "\n---");
 	      }
 	    } else {
-	      System.out.println("Sorry, Bryan, we have nothing for you.");
+	      System.out.println("Sorry we have nothing for you.");
 	    }
 	  }
 
 	  private static void initializeInventory(Inventory inventory) {
 	    Map properties = new HashMap();
-	    properties.put("instrumentType", InstrumentType.GUITAR);
+	    properties.put("instrumentType", InstrumentType.BANJO);
 	    properties.put("builder", Builder.COLLINGS);
-	    properties.put("model", "CJ");
+	    properties.put("model", "DP101");
 	    properties.put("type", Type.ACOUSTICS);
 	    properties.put("numStrings", 6);
 	    properties.put("topWood", Wood.INDIAN_ROSEWOOD);
@@ -70,7 +70,7 @@ public class FindGuitarTest {
 
 	    properties.put("builder", Builder.FENDER);
 	    properties.put("model", "Stratocastor");
-	    properties.put("type", Type.ELECTRIC);
+	    properties.put("type", Type.ACOUSTICS);
 	    properties.put("topWood", Wood.ALDER);
 	    properties.put("backWood", Wood.ALDER);
 	    inventory.addInstrument("V95693", 1499.95, new InstrumentSpec(properties));
@@ -88,7 +88,6 @@ public class FindGuitarTest {
 	    properties.put("backWood", Wood.BRAZALIAN_ROSEWOOD);
 	    inventory.addInstrument("82765501", 1890.95, 
 	      new InstrumentSpec(properties));
-
 	    properties.put("instrumentType", InstrumentType.MANDOLIN);
 	    properties.put("type", Type.ELECTRIC);
 	    properties.put("model", "F-5G");
@@ -96,11 +95,11 @@ public class FindGuitarTest {
 	    properties.put("topWood", Wood.CEDAR);
 	    properties.remove("numStrings");
 	    inventory.addInstrument("9019920", 5495.99, new InstrumentSpec(properties));
-
 	    properties.put("instrumentType", InstrumentType.BANJO);
 	    properties.put("model", "RB-3 Wreath");
 	    properties.remove("topWood");
 	    properties.put("numStrings", 5);
 	    inventory.addInstrument("8900231", 2945.95, new InstrumentSpec(properties));
+	    
 	  }
 }
