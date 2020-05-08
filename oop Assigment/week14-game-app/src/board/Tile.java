@@ -23,10 +23,6 @@ public class Tile {
 	        units.remove(unit);
 	    }
 	    
-	    protected void removeUnits()
-	    {
-	        
-	    }
 	    
 	    protected List getUnits()
 	    {
