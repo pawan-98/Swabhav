@@ -3,17 +3,17 @@ package com.techlabs.model;
 public class TableTennisGame extends Game {
 
 	@Override
-	void endPlay() {
-		System.out.println("Cricket Game Ended");
+	public void endPlay() {
+		System.out.println("Table Tennis Game Ended");
 	}
 
 	@Override
-	void initialize() {
-		System.out.println("Cricket Game Initialized");
+	public void initialize() {
+		System.out.println("Table Tennis Game Initialized");
 	}
 
 	@Override
-	void startPlay() {
-		System.out.println("Cricket Game Started");
+	public void startPlay() {
+		System.out.println("Table tennis Game Started");
 	}
 }

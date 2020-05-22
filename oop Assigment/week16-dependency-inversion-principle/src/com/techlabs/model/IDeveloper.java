@@ -1,5 +1,5 @@
 package com.techlabs.model;
 
 public interface IDeveloper {
-	String develop();
+	public String develop();
 }

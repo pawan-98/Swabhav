@@ -2,17 +2,17 @@ package com.techlabs.model;
 
 public class CarromGame extends Game {
 	@Override
-	void endPlay() {
+	public void endPlay() {
 		System.out.println("Carrom Game Ended");
 	}
 
 	@Override
-	void initialize() {
+	public void initialize() {
 		System.out.println("Carrom Game Initialized.");
 	}
 
 	@Override
-	void startPlay() {
+	public void startPlay() {
 		System.out.println("Carrom Game Started");
 	}
 
