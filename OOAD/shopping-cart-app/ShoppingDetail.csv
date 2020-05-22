@@ -1,0 +1,17 @@
+Customer ID : 101
+Customer name : kishore
+Customer Address : Chembur
+Order details : 
+Order id : 1
+Order date : Sun Dec 29 00:00:00 IST 2019
+Line item id : ,LineItem product : ,Product quantity : ,Line item cost
+201,chair, 12, 1080.0
+202,pencil, 10, 150.0
+203,eraser, 5, 180.0
+
+Order id : 2
+Order date : Sun Dec 29 00:00:00 IST 2019
+Line item id : ,LineItem product : ,Product quantity : ,Line item cost
+301,table, 2, 910.0
+302,watch, 1, 6550.0
+Cart total is : 8870.0
