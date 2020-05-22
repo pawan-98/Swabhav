@@ -10,7 +10,7 @@ public class BirdTest {
 		crow.fly();
 		NonFlightBird ostrich = new NonFlightBird();
 		ostrich.eat();
-		ostrich.walk();
+		ostrich.run();
 	}
 
 }
