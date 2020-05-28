@@ -19,7 +19,6 @@ public class AccountEqualityTest {
 	
 		System.out.println(acc1.equals(acc1));
 		System.out.println(acc1.equals(acc2)); 
-		System.out.println();										
 		
 	}
 

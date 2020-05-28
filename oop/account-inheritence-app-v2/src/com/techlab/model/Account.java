@@ -55,7 +55,6 @@ public abstract class Account {
 		int date = calendar.get(Calendar.DATE);
 		LocalDate birthDate = LocalDate.of(year, month, date);
 		LocalDate currentDate = LocalDate.now();
-		//System.out.println(birthDate+"here in acc  " +currentDate);
 		Period difference = Period.between(birthDate, currentDate);
 		
 		return difference.getYears() ;

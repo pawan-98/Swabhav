@@ -43,4 +43,12 @@ public class Account  {
 		
 		return stringContainingOutput;
 	}
+	@Override
+	public boolean equals(Object second) {
+		Account acc = (Account) second;
+		if(this.accNo==acc.accNo && this.name==acc.name && this.balance==acc.balance) {
+			return true;
+		}
+		return false;
+	}
 }

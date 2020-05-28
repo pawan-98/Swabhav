@@ -17,11 +17,12 @@ public class EmployeeTest {
 		
 	}
 	
-	public static void printSalarySlip(Employee e) {
-		System.out.println("Name:- "+e.getName());	
-		System.out.println("Id :-"+ e.getId());
-		System.out.println("Gender:- "+e.getGender());
-		System.out.println("Salary:- "+ e.calculateNetSalary());
+	public static void printSalarySlip(Employee employee) {
+		System.out.println("Name:- "+employee.getName());	
+		System.out.println("Id :-"+ employee.getId());
+		System.out.println("Gender:- "+employee.getGender());
+		System.out.println("Salary:- "+ employee.calculateNetSalary());
+		System.out.println("Role:-"+ employee.getRole() );
 			
 	}
 }

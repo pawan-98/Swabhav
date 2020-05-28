@@ -2,7 +2,7 @@ package com.techlab.model;
 
 public class Manager extends Employee {
 	public Manager(String name,int id,double basicSalary,String gender){
-		super(name, id, basicSalary,gender);
+		super(name, id, basicSalary,gender,"Manager");
 		
 	}
 	public double calculateNetSalary() {
