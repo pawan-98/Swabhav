@@ -38,4 +38,9 @@ public class Account implements java.io.Serializable {
 	public static int getNoOfTransaction() {
 		return noOfTransactions;
 	}
+	@Override
+	public String toString() {
+		String str = String.format("Acc No = " +accNo+ "\nName = " +name+ "\nBalance = " +balance);
+		return str;
+	}
 }

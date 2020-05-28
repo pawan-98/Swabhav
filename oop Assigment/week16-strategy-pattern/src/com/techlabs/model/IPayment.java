@@ -1,4 +1,4 @@
-ackage com.techlabs.model;
+package com.techlabs.model;
 
 public interface IPayment {
 	public void pay(int amount); 

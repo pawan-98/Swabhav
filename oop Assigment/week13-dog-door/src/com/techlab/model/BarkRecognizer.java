@@ -17,7 +17,6 @@ public class BarkRecognizer {
 	      Bark allowedBark = (Bark)i.next();
 	      if (allowedBark.equals(bark)) {
 	        door.open();
-	        System.out.println("Door opens");
 	        return;
 	      }
 	    } 
