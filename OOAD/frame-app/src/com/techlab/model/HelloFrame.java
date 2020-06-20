@@ -1,9 +1,12 @@
 package com.techlab.model;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class HelloFrame extends JFrame {
 	private static final int WIDTH=500;
@@ -20,10 +23,23 @@ public class HelloFrame extends JFrame {
 		buttonTwo.setBackground(LIGHT_BLUE);
 		add(buttonTwo);
 		
+		JLabel label = new JLabel();
+		label.setText("Button has not been clicked");
+		label.setBounds(0, 0, 200, 100);
+		add(label);
+		
 		setTitle(title);
 		setSize(WIDTH,HEIGHT);
 		setLayout(null);
 		setVisible(true);
+		
+		button.addActionListener(new ActionListener() {
+
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+		    	label.setText("Button has been clicked");
+		    }
+		});
 	}
 
 }

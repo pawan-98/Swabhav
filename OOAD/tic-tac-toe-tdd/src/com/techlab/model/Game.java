@@ -13,21 +13,20 @@ public class Game {
 		this.players = players;
 		this.board = board;
 		this.resultAnalyzer = resultAnalyzer;
+		this.status = "In Progress";
+		currentPlayer = players[0];
+		nextPlayer = players[1];
 
 	}
 
 	public void play(int position) {
-		if (currentPlayer == null) {
-			currentPlayer = players[0];
-			nextPlayer = players[1];
-		}
+
 		board.markCell(position, currentPlayer.getMark());
-
-		status = resultAnalyzer.analyzeResult();
-
+		resultAnalyzer.setMark(currentPlayer.getMark());
+		this.status = resultAnalyzer.analyzeResult();
 		temp = currentPlayer;
 		currentPlayer = nextPlayer;
-		nextPlayer = currentPlayer;
+		nextPlayer = temp;
 	}
 
 	public Player getCurrentPlayer() {
