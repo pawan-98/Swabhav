@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>An Interesting Title Goes Here</title>
+		<style>
+		</style>
+	</head>
+	<body>
+		<script>
+			
+		var awesomeSauce = (function () {
+			var secretCode = "Zorb!";
+			function privateCheckCode(code) {
+				if (secretCode == code) {
+					alert("You are awesome!");  
+				} else {
+					alert("Try again!");  
+				}
+			}
+		
+			return {
+				checkCode: privateCheckCode
+			};
+		})();
+		var foo = Object.create(awesomeSauce);
+		alert(foo.secretCode);
+		</script>
+	</body>
+</html>

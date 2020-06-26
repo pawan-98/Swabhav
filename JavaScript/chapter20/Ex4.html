@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>An Interesting Title Goes Here</title>
+		<style>
+		</style>
+	</head>
+	<body>
+		<script>
+			
+		function quotatious(names) {
+			var quotes = [];
+			for (var i = 0; i < names.length; i++) {  
+					var theFunction = function() {
+					return "My name is " + names[i] + "!";
+				}	
+				quotes.push(theFunction);
+			}
+			return quotes;
+		}
+		var people = ["Tony Stark", "John Rambo", "James Bond", "Rick James"];
+		var peopleFunctions = quotatious(people);
+		var person = peopleFunctions[0];
+		alert(person());
+		</script>
+	</body>
+</html>

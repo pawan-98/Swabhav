@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>An Interesting Title Goes Here</title>
+		<style>
+		</style>
+	</head>
+	<body>
+		<script>
+			
+			var funnyGuy = {
+				firstName: "Conan",
+				lastName: "O'Brien",
+				
+				
+				getName: function() {
+					return "Name is: " + this.firstName + " " + this.lastName;
+				}
+			};
+			//other ways
+				//funnyGuy.firstName = "Conan";
+				//funnyGuy.lastName = "O'Brien";
+				//funnyGuy["firstName"] = "Conan";
+				//funnyGuy["lastName"] = "O'Brien";
+				
+			alert(funnyGuy.getName());
+		</script>
+	</body>
+</html>

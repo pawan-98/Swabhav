@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>An Interesting Title Goes Here</title>
+		<style>
+		</style>
+	</head>
+	<body>
+		<script>
+			
+			var isLucky = function () {
+				var foo = Math.round(Math.random() * 100);
+				if (foo > 50) {
+					return "You are lucky!";
+				} else {
+					return "You are not lucky!";
+				}
+			};
+			var me = isLucky();
+			alert(me);
+			
+			window.setTimeout(function () {
+				alert("Everything is awesome!!!");
+			}, 2000);
+		</script>
+	</body>
+</html>
