@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="sea otter, kid, stuff" name="keywords">
+		<meta content="Sometimes, sea otters are awesome!" name="description">
+		<title>Example</title>
+
+	</head>
+	<body>
+		<div id="main">
+			<div class="pictureContainer">
+				<p class="theText"  src="www.facebook.com" height="300" width="150" >Text 1</p>
+			</div>
+			<div class="pictureContainer">
+				<p class="theText"  src="www.netflix.com" height="300" width="150" >Text 2</p>
+			</div>
+			<div class="pictureContainer">
+				<p class="theText"  src="www.instagram.com" height="300" width="150" >Text 3</p>
+			</div>
+			<div class="pictureContainer">
+				<p class="theText"  src="www.apple.com" height="300" width="150" />Text 4</p>
+			</div>
+		</div>
+	</body>
+	<script>
+		var text = document.querySelectorAll(".theText");
+		for (var i = 0; i < text.length; i++) {
+			var string = text[i];
+			alert(string.getAttribute("src"));
+		}
+	</script>
+</html>
