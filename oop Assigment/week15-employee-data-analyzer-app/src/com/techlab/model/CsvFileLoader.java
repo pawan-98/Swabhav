@@ -22,7 +22,7 @@ public class CsvFileLoader implements ILoader {
 			File file = new File("dataFile_emp.txt");
 			BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
 			String line;
-
+			
 			while ((line = bufferedReader.readLine()) != null) {
 			
 				lines.add(line + "\n");
