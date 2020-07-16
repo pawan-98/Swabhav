@@ -36,12 +36,8 @@ public class EmployeeData {
 	}
 
 	public void addRepotees(ArrayList<Employee> employees) {
-		for (Employee employeeFromFirstLoop : employees) {
-			for (Employee employeeFromSecondLoop : employees) {
-				if (employeeFromSecondLoop.getManagerId() == employeeFromFirstLoop.getId()) {
-					employeeFromFirstLoop.addEmployeesUnderThisEmployee(employeeFromSecondLoop);
-				}
-			}
+		for (Employee employee : employees) {
+			employee.findRepotes(personsData);
 		}
 	}
 

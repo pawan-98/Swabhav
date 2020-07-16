@@ -30,7 +30,13 @@ public class Employee {
 		finalString = "";
 
 	}
-
+	public void findRepotes(ArrayList<Employee> employees ) {
+		for (Employee employee : employees) {
+			if (employee.getManagerId() == this.getId()) {
+				this.addEmployeesUnderThisEmployee(employee);
+			}
+		}
+	}
 	public void addEmployeesUnderThisEmployee(Employee employee) {
 		employeesUnderThisEmployee.add(employee);
 	}
