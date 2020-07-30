@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Events!</title>
+	</head>
+	<body id="theBody" class="item">
+		<script>
+			window.addEventListener("keydown", dealWithKeyboard, false);
+			window.addEventListener("keypress", dealWithKeyboard, false);
+			window.addEventListener("keyup", dealWithKeyboard, false);
+			function dealWithKeyboard(e) {
+				alert("key pressed")
+			}
+		</script>
+	</body>
+</html>
