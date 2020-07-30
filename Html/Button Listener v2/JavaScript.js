@@ -1,13 +1,14 @@
-redButtonClicked=false;
-blueButtonClicked=false;
-
-function changeColour(){
-  if(this.value==="blue"){
-    document.body.style.backgroundColor = "blue";
+var theParent = document.querySelector("#parentDiv");
+theParent.addEventListener("click", doSomething, false);
+function doSomething(e) {
+  if (e.target !== e.currentTarget) {
+    colour=e.target.value;
+    if(colour==="blue"){
+      document.body.style.backgroundColor = "blue";
+    }
+    else if(colour==="red"){
+      document.body.style.backgroundColor = "red";
+    }
   }
-  else if(this.value==="red"){
-    document.body.style.backgroundColor = "red";
-  }
+  e.stopPropagation();
 }
-document.getElementById("redButton").addEventListener("click", changeColour);
-document.getElementById("blueButton").addEventListener("click", changeColour);
