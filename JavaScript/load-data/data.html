@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="div1"><h2>Click to fetch employee data</h2></div>
+        <button>Fetch</button>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function(){
+                $("button").click(function(){
+                    this.remove();
+                    $.ajax({url: "https://swabhav-tech.firebaseapp.com/emp.txt",dataType:"text", success: function(result){
+                        $("#div1").html(result);
+                        newDataArray=[];
+                        dataArray=result.split("\n");
+                        for (let index = 0; index < dataArray.length; index++) {
+                            newDataArray[index]=dataArray[index].split(",");   
+                        }
+                        var table = document.createElement("TABLE");
+                        table.setAttribute("border","1");
+                        for (let index = 0; index < newDataArray.length; index++) {
+                            var tR = document.createElement("TR");
+                            table.appendChild(tR);
+                            for (let i = 0; i < newDataArray[index].length; i++) {
+                                var cell= document.createElement("TD");
+                                var text = document.createTextNode(newDataArray[index][i]);
+                                cell.appendChild(text);
+                                tR.appendChild(cell);
+                                
+                            }
+                            table.appendChild(tR);
+                        }
+                        $("#div1").html(table);
+                    }});
+                });
+            });
+        </script>
+    </body>
+</html>

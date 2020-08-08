@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <div id="div1"><h2>Load data using ajax and jquery</h2></div>
+        <button>Get External Content</button>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <script>
+            $(document).ready(function(){
+                $("button").click(function(){
+                    this.remove();
+                    $.ajax({url: "https://swabhav-tech.firebaseapp.com/emp.txt",dataType:"text", success: function(result){
+                        $("#div1").html(result);
+                    }});
+                });
+            });
+        </script>
+    </body>
+</html>

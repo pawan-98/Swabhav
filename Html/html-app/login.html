@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .align {
+            margin: auto;
+            width: 60%;
+            border: 3px solid #73AD21;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="align">Login</h1>
+    <form action="Auth.php" method="GET" onsubmit="return check()">
+        <div class="align">
+            <p>Name:-</p>
+            <input type="text" name="userName" id="userName">
+            <p>Password:-</p>
+            <input type="text" name="userPassword" id="userPassword">
+            <br>
+            <br>
+            <input type="submit" id="submitButton">
+        </div>
+    </form>
+    </div>
+    <script>
+        console.log(window);
+        submitButton = document.getElementById("submitButton");
+        userName = document.getElementById("userName");
+        password = document.getElementById("userPassword");
+        function check() {
+            temp = 0;
+            if (userName.value == "") {
+                alert("Please enter your name!!!");
+                temp = 1;
+            }
+            if (password.value == "") {
+                alert("Please enter password!!");
+                temp = 1;
+            }
+            if (password.value.length < 6) {
+                alert("Please enter password greater than 6 characters");
+                temp = 1;
+            }
+            if(temp==1){
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+
+</html>
