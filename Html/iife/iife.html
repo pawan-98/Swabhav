@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <script>
+      (function f1(){
+          console.log("in f1");
+      })();
+       var f2 = function(){
+           console.log("in f2");
+       }();
+       (function f3(){
+           console.log("in f3");
+       }());
+    </script>
+</body>
+
+</html>

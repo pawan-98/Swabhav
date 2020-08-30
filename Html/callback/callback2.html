@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <script>
+        setTimeout(function(){
+            console.log("After 2 sec in console",200);
+        }, 2000);
+        setTimeout(displayAlert,4000);
+        setTimeout(displayInHtml,8000);
+        function displayAlert(){
+            alert("after 4 sec in alert box");
+        }
+        function displayInHtml(){
+            document.write("in html after 8 secs")
+        }
+
+    </script>
+</body>
+
+</html>

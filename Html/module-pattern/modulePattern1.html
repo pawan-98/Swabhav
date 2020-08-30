@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            function makeEmployee(){
+                var emp={
+                   _firstName:"",
+                   _lastName:"",
+                   setFirstName:function(firstName){
+                       _firstName=firstName;
+                   },
+                   setLastName:function(lastName){
+                       _lastName=lastName;
+                   },
+                   getFullName:function(){
+                       return(_firstName+" "+_lastName);
+                   }
+                }
+                return emp;
+            }
+            var e1 =  makeEmployee()
+            e1.setFirstName("Rahul");
+            e1.setLastName("Dravis");
+            console.log(e1.getFullName());
+        </script>
+    </body>
+</html>

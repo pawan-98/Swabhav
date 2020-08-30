@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            function Student(id,name){
+                this.id= id;
+                this.name=name;
+                var foo="pawan";
+                this.getString=function(){
+                    return "id is "+this.id+" name is "+this.name;
+                }
+            }
+            var s1 = new Student("101","abc");
+            var s2 = new Student("102","pqr");
+            var s3= Student("103","pawan");
+            console.log(s1);
+            console.log(s2);
+            console.log(s3);
+            console.log(s1.foo);
+            console.log(s1.getString());
+            console.log(s2.getString());
+        </script>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    <script>
+        function square(no,callbackFunction){
+            console.log("squaring value");
+            callbackFunction(no*no);
+        }
+        square(2,display1);
+        square(3,display2);
+        function display1(r){
+            console.log("in desplay1",r);
+        }
+        var display2=function(r){
+            console.log("in dislay 2",r)
+        }
+
+    </script>
+</body>
+
+</html>

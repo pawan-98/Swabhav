@@ -1,0 +1,20 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            function Customer(name,location){
+                this.name=name;
+                this.location=location;
+                this.show=function(){
+                    setTimeout(function(){
+                        console.log("name "+name+" location "+location);
+                    },3000);
+                }
+            }
+            var c1= new Customer("pawan","mumbai");
+            c1.show();
+        </script>
+    </body>
+</html>

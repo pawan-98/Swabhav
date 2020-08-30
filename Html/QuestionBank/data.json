@@ -1,0 +1,34 @@
+{
+    "data": {
+        "0": {
+            "id": 0,
+            "text": "Who is current prime minister of India?",
+            "answer": "Narendra Modi",
+            "options": [
+                "Rahul Gandhi",
+                "Manmohan Sing",
+                "Narendra Modi"
+            ]
+        },
+        "1": {
+            "id": 1,
+            "text": "Who is current Home minister of India?",
+            "answer": "Amit Shah",
+            "options": [
+                "Rahul Gandhi",
+                "Amit Shah",
+                "Narendra Modi"
+            ]
+        },
+        "2": {
+            "id": 2,
+            "text": "Who is current Finance minister of India?",
+            "answer": "Nirmala Sitharaman",
+            "options": [
+                "Nirmala Sitharaman",
+                "Manmohan Sing",
+                "Narendra Modi"
+            ]
+        }
+    }
+}

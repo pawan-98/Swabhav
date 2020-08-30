@@ -1,0 +1,21 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            function Customer(name,address){
+                this.name=name;
+                this.address=address;
+                this.show=function(){
+                    var that=this;
+                    setTimeout(function(){
+                        console.log(that.name+"-"+that.address);
+                    },3000);
+                }
+            }
+            var c1= new Customer("pawan","mumbai");
+            c1.show();
+        </script>
+    </body>
+</html>

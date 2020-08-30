@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+        <script>
+            function squareEvenNo(no,callbackFunction
+            ){
+            if(no%2 == 0){
+                return callbackFunction
+                (no*no);
+            }
+            return callbackFunction
+            ("Error "+no+" is not even");
+        }
+        squareEvenNo(10,function(result){
+            console.log(result);
+        });
+
+        function display(result){
+            console.log("Display result = "+result);
+        }
+        squareEvenNo(4,display);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <p>Products:</p>
+    <select name="productDropDown" id="productDropDown">
+        <option value="">--Select--</option>
+    </select>
+
+    <p>Quantity:</p>
+    <input type="number" id="quantity">
+    <br><br>
+    <input type="button" id="add" value="Add">
+    <br><br>
+    <table id="productsTable" border="1">
+        <tr>
+            <th>Item</th>
+            <th>Quantity</th>
+            <th>Cost per Unit</th>
+            <th>Total</th>
+        </tr>
+    </table>
+
+    <script type="text/javascript" src="jquery-3.5.1.js"></script>
+    <script>
+        products = [
+            {
+                "id": "0",
+                "name": "Phone",
+                "cost": 20,
+                "quantity": 0
+            },
+            {
+                "id": "1",
+                "name": "Wallet",
+                "cost": 2,
+                "quantity": 0
+            },
+            {
+                "id": "2",
+                "name": "Bike",
+                "cost": 70,
+                "quantity": 0
+            },
+            {
+                "id": "3",
+                "name": "Pen",
+                "cost": 1,
+                "quantity": 0
+            }
+        ];
+        $(document).ready(function () {
+            for (var index = 0; index < products.length; index++) {
+                $("#productDropDown").append("<option value='" + products[index].id + "'>" + products[index].name + "-" + products[index].cost + "k" + "</option>");
+            }
+            $("#add").click(function () {
+                var selectedItemId = $("#productDropDown").children("option:selected").val();
+                var quantity = $("#quantity").val();
+                if (selectedItemId !== "" && quantity !== "") {
+                    for (let index = 0; index < products.length; index++) {
+                        if (products[index].id == selectedItemId) {
+                            products[index].quantity = parseInt(products[index].quantity) + parseInt(quantity);
+                            break;
+                        }
+                    }
+                    display();
+                    $(".remove").click(function(){
+                        removeId=this.parentElement.parentElement.id;
+                        for (var index = 0; index < products.length; index++) {
+                            if(removeId==products[index].id){
+                                products[index].quantity=0;
+                                display();
+                            }
+                            
+                        }
+                    });
+                }
+                else {
+                    alert("Please fill all areas!!")
+                }
+                function display(){
+                    $("#productsTable tr:not(:first)").remove();
+                    for (var index = 0; index < products.length; index++) {
+                        if (products[index].quantity !== 0) {
+                            $("#productsTable").append("<tr id='"+products[index].id+"'><td>" + products[index].name + "</td><td>" + products[index].quantity + "</td><td>" + products[index].cost + "k</td><td>" + products[index].cost * products[index].quantity + "k <input type='button' class='remove' value='X'> </td></tr>");
+                        }
+                    }
+
+                }
+            });
+
+        });         
+    </script>
+</body>
+
+</html>

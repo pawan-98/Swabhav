@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+    </body>
+    <script>
+        function doSomeIoOperation(input){
+            return new Promise(function(resolve,reject){
+                var data = Math.random()*input;
+                if(data>5){
+                    resolve("success:- "+data);
+                }
+                else{
+                    reject("Some error");
+                }
+            });
+        }
+        doSomeIoOperation(10).then(function(r){
+            console.log(r);
+        }).catch(function(r){
+            console.log(r);
+        })
+        console.log("End program");
+    </script>
+</html>

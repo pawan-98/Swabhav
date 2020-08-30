@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+
+    </body>
+    <script>
+        function doSomeIoOperation(input,callback){
+            setTimeout(function(){
+                var data = Math.random()*input;
+                callback(data);
+            },0);
+        }
+        doSomeIoOperation(10,function(r){
+            console.log("data is "+r);
+        })
+        console.log("End program");
+    </script>
+</html>

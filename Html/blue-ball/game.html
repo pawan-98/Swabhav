@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .circle {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="button" type="button">Start</button>
+    <div id="attempts">
+    </div>
+    <div id="myDiv">
+
+    </div>
+    <script>
+        var game = (function () {
+            gameObj = {
+            };
+            gameObj.allBalls = [];
+            gameObj.attempts = 5;
+            gameObj.correctBall = Math.floor(Math.random() * 50);
+            gameObj.status = "started";
+
+            gameObj.start = function () {
+                console.log(gameObj.correctBall);
+                document.getElementById("button").remove();
+                for (var index = 0; index < 50; index++) {
+                    var ball = document.createElement("IMG");
+                    ball.setAttribute("src", "grayBall.jpg")
+                    ball.setAttribute("class", "circle")
+                    ball.setAttribute("id", index)
+                    document.getElementById("myDiv").appendChild(ball);
+                    gameObj.allBalls[index] = ball;
+                    ball.addEventListener("click", gameObj.analyze, { once: true });
+                }
+            };
+
+            gameObj.analyze = function (e) {
+                gameObj.attempts = gameObj.attempts - 1;
+                attemptsDiv = document.getElementById("attempts");
+                attemptsDiv.textContent = "number Of attempts left " + gameObj.attempts;
+                currentBall = e.target;
+
+
+                if (currentBall.id == gameObj.correctBall) {
+                    gameObj.status = "won";
+                    currentBall.setAttribute("src", "blueBall.jpg");
+                    setTimeout(() => {
+                        alert("You Won!!")
+                    }, 1000);
+                    gameObj.reload();
+                }
+                else if (currentBall.id > gameObj.correctBall) {
+                    currentBall.setAttribute("src", "greenBall.jpg");
+                }
+                else if (currentBall.id < gameObj.correctBall) {
+                    currentBall.setAttribute("src", "redBall.png")
+                }
+                if (gameObj.attempts == 0 && gameObj.status !== "won") {
+                    var rightBall = document.getElementsByClassName("click");
+                    console.log(rightBall)
+                    gameObj.allBalls[gameObj.correctBall].setAttribute("src", "blueBall.jpg");
+                    setTimeout(() => {
+                        alert("Game Over!!")
+                    }, 1000);
+                    gameObj.reload();
+
+                };
+                gameObj.reload = function () {
+                    document.getElementById("myDiv").style.pointerEvents = 'none';
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
+                }
+            };
+          
+            return gameObj;
+        })();
+        document.getElementById("button").addEventListener("click", game.start);
+
+    </script>
+</body>
+
+</html>
