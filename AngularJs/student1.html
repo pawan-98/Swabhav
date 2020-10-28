@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="studentController" ng-style="colour">
+        <h1>Id:{{ student.id }}</h1>
+        <h1>Name:{{ student.name }}</h1>
+        <h1>Cgpa:{{ student.cgpa }}</h1>
+    </div>
+    <script src="angular.js"></script>
+    <script>
+        angular.module('myApp', []).controller('studentController', function ($rootScope) {
+            console.log("controller created")
+            $rootScope.student = {
+                "id": 7,
+                "name": "pawan",
+                "cgpa": "7.5"
+            };
+            if ($rootScope.student.cgpa < 3) {
+                $rootScope.colour = {
+                    "background-color": "red"
+                }
+
+            } else if ($rootScope.student.cgpa < 7) {
+                $rootScope.colour = {
+                    "background-color": "yellow"
+                }
+            }
+            else {
+                $rootScope.colour = {
+                    "background-color": "green"
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

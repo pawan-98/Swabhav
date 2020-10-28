@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body ng-app="myApp">
+    <div ng-controller="controller">
+        {{ message }}
+    </div>
+    <script src="angular.js"></script>
+    <script>
+        angular.module('myApp', []).controller('controller', ['$rootScope', function ($rootScope) {
+            console.log("controller created")
+            $rootScope.message = 'Welcome to controller A!!!!';
+        }]);
+    </script>
+</body>
+
+</html>

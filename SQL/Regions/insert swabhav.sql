@@ -1,0 +1,1 @@
+insert into locations values(6,'swabhv techlabs','407074','mumbai','maharashtra',1);

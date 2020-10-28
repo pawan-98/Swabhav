@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body ng-app="modA">
+    <div ng-controller="controllerA">
+        <h1>{{ data }}</h1>
+    </div>
+
+    <div ng-controller="controllerB">
+        <h1>{{data}}</h1>
+    </div>
+
+    <div>
+        {{company}}
+    </div>
+    <script src="angular.js"></script>
+    <script>
+        angular.module('modB', []).controller('controllerB', function ($rootScope,$scope) {
+            console.log("controller B created")
+            $rootScope.company = 'Swabhav Techlabs';
+            $scope.data="Controller B says hello";
+        });
+        angular.module('modA', ['modB']).controller('controllerA',  function ($rootScope,$scope) {
+            console.log("controller  A created")
+            $scope.data='Controller A says hello';
+        });
+    </script>
+</body>
+
+</html>
