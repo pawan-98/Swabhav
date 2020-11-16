@@ -67,7 +67,12 @@ public class Test {
 
 			transaction = session.beginTransaction();
 			readAll(session);
-			
+//			session.save(dept1);
+//			session.save(dept2);
+//			session.save(e1);
+//			session.save(e2);
+//			session.save(e3);
+//			session.save(e4);
 			transaction.commit();
 			System.out.println("commit");
 		} catch (HibernateException ex) {
