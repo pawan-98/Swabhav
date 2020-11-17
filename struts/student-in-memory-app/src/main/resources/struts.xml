@@ -29,6 +29,7 @@
 		<action name="doAdd"
 			class="com.techlab.action.AddStudentAction" method="addDo">
 			<result name="success" type="chain">display</result>
+			<result name="input">addForm.jsp</result>
 		</action>
 
 		<action name="delete"
@@ -45,6 +46,7 @@
 		<action name="update"
 			class="com.techlab.action.EditStudentAction" method="doEdit">
 		<result name="success" type="chain">display</result>
+		<result name="input">edit.jsp</result>
 		</action>
 
 		<action name="loginDo" class="com.techlab.action.LoginAction"
