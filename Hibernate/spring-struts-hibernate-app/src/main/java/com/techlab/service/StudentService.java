@@ -6,7 +6,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.techlab.model.Student;
+import com.techlab.entity.Student;
 import com.techlab.repository.StudentRepository;
 
 @Service

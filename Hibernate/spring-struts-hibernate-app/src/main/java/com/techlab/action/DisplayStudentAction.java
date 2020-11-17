@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.Action;
-import com.techlab.model.Student;
+import com.techlab.entity.Student;
 import com.techlab.service.StudentService;
 
 public class DisplayStudentAction implements Action  {

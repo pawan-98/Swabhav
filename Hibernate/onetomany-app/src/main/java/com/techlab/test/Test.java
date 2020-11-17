@@ -66,10 +66,11 @@ public class Test {
 		try {
 
 			transaction = session.beginTransaction();
-			readAll(session);
+			//readAll(session);
+//			  session.delete(dept1);
 //			session.save(dept1);
 //			session.save(dept2);
-//			session.save(e1);
+			session.save(e1);
 //			session.save(e2);
 //			session.save(e3);
 //			session.save(e4);
@@ -77,6 +78,7 @@ public class Test {
 			System.out.println("commit");
 		} catch (HibernateException ex) {
 			System.out.println(ex.getMessage());
+			ex.printStackTrace();
 			transaction.rollback();
 		} finally {
 			session.close();
