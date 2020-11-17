@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<script src="angular.js"></script>
+
+<body ng-app="myApp" ng-controller="myCtrloller">
+
+<h1 ng-style="cssAttr">Welcome</h1>
+
+<script>
+var app = angular.module("myApp", []);
+// app.controller("myCtrloller", function($scope) {
+//   $scope.cssAttr = {
+//     "color" : "white",
+//     "background-color" : "coral",
+//     "font-size" : "60px",
+//     "padding" : "50px"
+//   }
+// });
+app.controller("myCtrloller",function($scope){$scope.cssAttr={color:"white","background-color":"coral","font-size":"60px",padding:"50px"}});
+</script>
+
+</body>
+</html>

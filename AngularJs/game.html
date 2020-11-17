@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .circle {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="angular.js"></script>
+</head>
+
+<body ng-app="modA">
+    <div id="myDiv" ng-controller="controllerA">
+        <div ng-hide="hideVar">
+            <h1>Rule Set</h1>
+            <p>Try to find the blue ball hidden under the grey balls.<p>
+            <p>if the selected balls number is greater than blue ball's number then colour of the ball will be green.<p>
+            <p>if the selected balls number is lesser than blue ball's number then colour of the ball will be red.<p>
+        </div>
+        <div id="attempts">
+        </div>
+        <button id= "start-button" ng-click="start()">start</button>
+    </div>
+
+    <script src="angular.js"></script>
+    <script>
+        angular.module('modA', []).controller('controllerA',  function ($rootScope,$scope) {
+            var correctBall = Math.floor(Math.random() * 50);
+            var allBalls = []
+            var attempts = 5;
+            var status = "started";
+            $scope.hideVar=false;
+            console.log(correctBall);
+            $scope.start=function(){  
+                $scope.hideVar=true;  
+                console.log(correctBall);
+                for (var index = 0; index < 50; index++) {
+                    var ball = angular.element(document.createElement("IMG"));
+                    ball.attr("src","grayBall.jpg");
+                    ball.addClass("circle");
+                    ball.attr("id", index);
+                    angular.element(document.getElementById("myDiv")).append(ball);
+                    allBalls[index] = ball;
+                    //ball.attr("onclick", "$scope.analyze()");
+                    //ball.attr("ng-click", "analyze()");
+                    //$("#"+index).click($scope.analyze)
+                    //ball.addEventListener("click", $scope.analyze);
+                    $("#"+index).click($scope.analyze)
+                    angular.element(document.getElementById("start-button")).remove();
+                }
+                
+                }
+                $scope.analyze= function(){
+                    console.log($(this).attr("id")+"analysing"+correctBall);
+                    var attemtsDiv=angular.element(document.getElementById("attempts"));
+                    attemtsDiv.empty();
+                    attempts = attempts - 1;
+                    attemtsDiv.append("number Of attempts left " + attempts);
+
+                    if($(this).attr("id")==correctBall){
+                        $(this).attr("src","blueball.jpg");
+                        status = "won";
+                       
+                        setTimeout(() => {
+                        alert("You Won!!")
+                    }, 1000);
+                    $scope.reload();
+                    }
+                    else if($(this).attr("id")>correctBall){
+                       
+                        $(this).attr("src","greenBall.jpg");
+                    }
+                    
+                    else if($(this).attr("id")<correctBall){
+                        $(this).attr("src","redBall.png");
+                    }
+                    if (attempts == 0 && status !== "won") {
+                    var rightBall = document.getElementsByClassName("click");
+                    console.log(rightBall)
+                    //gameObj.allBalls[gameObj.correctBall].setAttribute("src", "blueBall.jpg");
+                    $("#"+correctBall).attr("src","blueball.jpg")
+                    setTimeout(() => {
+                        alert("Game Over!!")
+                    }, 1000);
+                    $scope.reload();
+
+                };
+                $(this).css("pointer-events","none");
+
+            }
+            $scope.reload = function () {
+                    document.getElementById("myDiv").style.pointerEvents = 'none';
+                    setTimeout(() => {
+                        location.reload();
+                    }, 3000);
+                }
+        });
+
+    </script>
+</body>
+
+</html>

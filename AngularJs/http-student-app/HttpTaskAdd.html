@@ -1,0 +1,114 @@
+<html>
+
+<head>
+    <title>Student Details</title>
+    <style>
+        
+    </style>
+    <script src="angular.js"></script>
+    <script>
+        angular.module('myMod', [])
+            .controller('myCtrl', function ($scope, $http) {
+                $scope.getGender = function (student) {
+                    if (student.isMale) {
+                        return "Male";
+                    } else {
+                        return "Female";
+                    }
+                }
+                $scope.displayForm = function () {
+                    document.getElementById('dataUpload').style.display = 'block';
+                    document.getElementById('divForButtons').style.display = 'none';
+                    document.getElementById('tableSection').style.display = 'none';
+                }
+                $scope.students = [];
+               
+                $scope.updateCss = function () {
+                    document.getElementById('divForButtons').style.display = 'block';
+                    document.getElementById('dataUpload').style.display = 'none';
+                    document.getElementById('tableSection').style.display = 'none';
+                }
+                $scope.displayStudentData = function () {
+                    document.getElementById('tableSection').style.display = 'block';
+                    document.getElementById('divForButtons').style.display = 'none';
+                    document.getElementById('dataUpload').style.display = 'none';
+                    $http.get('http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students')
+                        .then(function (response) {
+                            $scope.students = [];
+                            for (var i = 0; i < response.data.length; i++) {
+                                $scope.students.push(response.data[i]);
+                            }
+                        })
+                }
+                $scope.studentList = {};
+                $scope.uploadStudentData = function () {
+                   
+                    $scope.studentList.rollno = $scope.rollno;
+                    $scope.studentList.name = $scope.name;
+                    $scope.studentList.age = $scope.age;
+                    $scope.studentList.email = $scope.email;
+                    $scope.studentList.date = $scope.dob;
+                    $scope.studentList.isMale = $scope.gender;
+                    $http({
+                        method: "POST",
+                        url: 'http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students',
+                        data: $scope.studentList,
+                        success: function () {
+                            alert('Success');
+                        }
+                    })
+                    $scope.updateCss();
+                }
+                
+                
+            })
+            //function myCtrl(t,e){t.getGender=function(t){return t.isMale?"Male":"Female"},t.displayForm=function(){document.getElementById("dataUpload").style.display="block",document.getElementById("divForButtons").style.display="none",document.getElementById("tableSection").style.display="none"},t.students=[],t.updateCss=function(){document.getElementById("divForButtons").style.display="block",document.getElementById("dataUpload").style.display="none",document.getElementById("tableSection").style.display="none"},t.displayStudentData=function(){document.getElementById("tableSection").style.display="block",document.getElementById("divForButtons").style.display="none",document.getElementById("dataUpload").style.display="none",e.get("http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students").then(function(e){t.students=[];for(var n=0;n<e.data.length;n++)t.students.push(e.data[n])})},t.studentList={},t.uploadStudentData=function(){t.studentList.rollno=t.rollno,t.studentList.name=t.name,t.studentList.age=t.age,t.studentList.email=t.email,t.studentList.date=t.dob,t.studentList.isMale=t.gender,e({method:"POST",url:"http://gsmktg.azurewebsites.net/api/v1/techlabs/test/students",data:t.studentList,success:function(){alert("Success")}}),t.updateCss()}}myCtrl.$inject=["$rootScope","$scope"],angular.module("myMod",[]).controller("myCtrl",myCtrl);
+    </script>
+</head>
+
+<body ng-app='myMod' ng-controller='myCtrl'>
+    <h1>Student App</h1>
+    <div id="divForButtons">
+        <button ng-click='displayStudentData()'>Load</button>
+        <button ng-click='displayForm()'>Upload</button>
+    </div>
+
+    <div id="dataUpload" style="display: none;">
+        <form>
+            Roll No <input type="number" ng-model='rollno'> <br><br>
+            Name <input type="text" ng-model='name'> <br><br>
+            Email <input type="email" ng-model='email'> <br><br>
+            Age <input type="number" ng-model='age'> <br><br>
+            DOB <input type="date" ng-model='dob'> <br><br>
+            Gender <input type="radio" ng-model='gender' value="true"> Male
+            <input type="radio" ng-model='gender' value="false"> Female <br><br>
+            <input type="submit" value="sumbit" ng-click="uploadStudentData()">
+        </form>
+    </div>
+
+    <div id="tableSection" style="display: none;">
+        <table border="1">
+            <tr>
+                <th>Id</th>
+                <th>RollNo</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Male</th>
+                <th>Age</th>
+                <th>DOB</th>
+            </tr>
+            <tr ng-repeat="student in students">
+                <td>{{student.id}}</td>
+                <td>{{student.rollNo}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.email}}</td>
+                <td>{{getGender(student)}}</td>
+                <td>{{student.age}}</td>
+                <td>{{student.date}}</td>
+            </tr>
+        </table>
+        <button ng-click='displayForm()'>Add Data</button>
+    </div>
+</body>
+
+</html>

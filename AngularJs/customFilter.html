@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body ng-app="modB">
+
+    <div ng-controller="controllerBind">
+        <section>
+            <button type="button" ng-click="load()">Load</button><br>
+            <div ng-repeat="studentRef in student">
+                {{studentRef.id}}<br>
+                {{studentRef.name}}<br>
+                {{studentRef.grade|grade}}<br>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="angular.js"></script>
+    <script>
+        angular.module('modB', [])
+            .filter('grade', function () {
+                return function (input) {
+                    if(input<4){
+                        return "C";
+                    }
+                    else if(input>8){
+                        return "A";
+                    }
+                    
+                        return "B"
+                };
+            })
+
+            .controller('controllerBind', function ($scope) {
+                $scope.load = function () {
+                    $scope.student = [{
+                        id: 101,
+                        name: 'Pawan',
+                        grade:7.5
+                    },
+                    {
+                        id: 102,
+                        name: 'Amit',
+                        grade: 9
+                    }
+
+                    ]
+                }
+            });
+
+    </script>
+</body>
+
+</html>

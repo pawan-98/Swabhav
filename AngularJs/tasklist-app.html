@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+
+        th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #1cad20;
+            color: white;
+        }
+
+    </style>
+</head>
+
+<body ng-app="myToDoApp">
+    <div ng-controller="myToDoAppController">
+        <form ng-submit="todoAdd()">
+            <input type="text" ng-model="inputValue" size="80" placeholder="Add Task">
+            <input type="submit" value="Add Task">
+        </form>
+        <table>
+            <thead>
+                <th>Done</th>
+                <th>Task</th>
+                <th>Date</th>
+                <th>Remove</th>
+            </thead>
+            <tbody>
+
+                <tr ng-repeat="task in listArray track by $index">
+                    <td><input  type="checkbox" ng-model="task.done" class="check"></td>
+                    <td ng-style="{'text-decoration': getStatus(task)}">{{task.todoText}}</td>
+                    <td ng-bind="task.date" class="date"></td>
+                    <td><button ng-click="remove(task)">Delete</button></td>
+                </tr>
+    </div>
+    </tbody>
+    </table>
+    </div>
+    <script src="angular.js"></script>
+    <script>
+        angular.module("myToDoApp", []).controller("myToDoAppController", function ($scope) {
+
+
+            if (typeof (Storage) != "undefined") {
+                var tasks = localStorage.getItem("tasks");
+                if (tasks != null) {
+                    $scope.listArray = JSON.parse(tasks);
+                }
+                else {
+                    $scope.listArray = []
+                }
+            }
+            
+
+            $scope.todoAdd = function () {
+                $scope.listArray.push({ todoText: $scope.inputValue, date: new Date() ,done: false });
+                $scope.updateLocalStorage();
+                $scope.inputValue = "";
+            }
+
+            $scope.remove = function (task) {
+                var index = $scope.listArray.indexOf(task)
+                if (confirm("Are you sure you want to delete??")) {
+                    $scope.listArray.splice(index, 1)
+                    $scope.updateLocalStorage();
+                }
+            }
+
+            $scope.updateLocalStorage = function () {
+                localStorage.setItem("tasks", JSON.stringify($scope.listArray));
+            }
+
+            $scope.getStatus=function(task){
+                if(task.done){
+                    return "line-through";
+                }else{
+                return " ";
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
