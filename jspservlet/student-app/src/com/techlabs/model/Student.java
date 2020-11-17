@@ -1,21 +1,20 @@
 package com.techlabs.model;
 
-import java.util.UUID;
 
 public class Student {
-	private UUID id;
+	private int id;
 	private String name;
 	private String gender;
 	
-	public Student(UUID id, String name, String gender) {
+	public Student(int id, String name, String gender) {
 		this.id = id;
 		this.name = name;
 		this.gender = gender;
 	}
-	public UUID getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(UUID id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {

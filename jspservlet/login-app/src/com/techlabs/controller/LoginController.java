@@ -11,19 +11,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.techlabs.model.Login;
+
 /**
  * Servlet implementation class auth
  */
 @WebServlet("/auth")
-public class Auth extends HttpServlet {
+public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private Login login;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public Auth() {
+	public LoginController() {
 		super();
 		// TODO Auto-generated constructor stub
+		login= new Login();
 	}
 
 	/**
@@ -38,26 +41,23 @@ public class Auth extends HttpServlet {
 		String name = request.getParameter("userName");
 		String passsword = request.getParameter("password");
 		PrintWriter out = response.getWriter();
-		System.out.println(name + passsword);
-		if (name != null) {
-			if (name.equals("admin") && passsword.equals("admin")) {
-				currentSession.setAttribute("userName", name);
-				currentSession.setAttribute("password", passsword);
-				out.println("Welcome admin");
-				out.print("<br><a href=/login-app/Logout>logout");
-
-			}
-		} else if (currentSession.getAttribute("userName") != null) {
-			if (currentSession.getAttribute("userName").equals("admin")
-					&& currentSession.getAttribute("password").equals("admin")) {
-				out.println("Login from session");
-				out.print("<br><a href=/login-app/Logout>logout");
-			}
+		String  status =login.getStatus(name, passsword,(String) currentSession.getAttribute("userName"), (String)currentSession.getAttribute("password"));
+		if(status.equals("session")) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Success.jsp");
+			dispatcher.forward(request, response);
+		}else if (status.equals("normal")) {
+			currentSession.setAttribute("userName", name);
+			currentSession.setAttribute("password", passsword);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Success.jsp");
+			dispatcher.forward(request, response);
 		}
-
 		else {
-			out.println("Failed");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/Failure.jsp");
+			dispatcher.forward(request, response);
 		}
+		
+		
+		
 	}
 
 	
