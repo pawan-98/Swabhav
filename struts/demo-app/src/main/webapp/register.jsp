@@ -10,10 +10,10 @@
 </head>
 <body>
 
-<s:form action="registerDo">
-	<s:textfield name="name" label="Please enter your name"></s:textfield>
+<s:form action="registerDo" >
+	<s:textfield name="name" label="Name:-"></s:textfield>
 	<s:textfield name="age" label="Age:-"></s:textfield>
-	<s:textfield name="address" label="Enter your address"></s:textfield>
+	<s:textfield name="address" label="Address:-"></s:textfield>
 	<s:submit value="Submit"></s:submit> 
 </s:form>
 </body>

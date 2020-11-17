@@ -4,10 +4,18 @@ import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ModelDriven;
 import com.techlab.model.Student;
 import com.techlab.service.StudentService;
+import com.techlab.viewmodel.UpdateViewModel;
 
-public class EditStudentAction implements Action,ModelDriven<Student> {
+public class EditStudentAction implements Action,ModelDriven<UpdateViewModel> {
 	private String editId;
-	private Student editStudent;
+	private UpdateViewModel updateViewModel;
+	private static Student student;
+	StudentService service;
+	public EditStudentAction() {
+		// TODO Auto-generated constructor stub
+		updateViewModel = new UpdateViewModel();
+		service = StudentService.getInstance();
+	}
 	
 	public String getEditId() {
 		return editId;
@@ -17,31 +25,49 @@ public class EditStudentAction implements Action,ModelDriven<Student> {
 		this.editId = editId;
 	}
 
-	public Student getEditStudent() {
-		return editStudent;
+	public UpdateViewModel getEditStudent() {
+		return updateViewModel;
 	}
 
-	public void setEditStudent(Student editStudent) {
-		this.editStudent = editStudent;
+	public void setEditStudent(UpdateViewModel updateViewModel) {
+		this.updateViewModel = updateViewModel;
 	}
 	public String doEdit() {
-		System.out.println(editStudent.getId() + " " + editStudent.getName());
-		StudentService service = StudentService.getInstance();
-		service.updateStudent(editStudent);
+		//System.out.println(updateViewModel.getId() + " " + updateViewModel.getName());
+		 
+		//service.updateStudent(updateViewModel);
+		/*
+		 * student= service.searchStudent(editId);
+		 * updateViewModel.setGender(student.getGender());
+		 * updateViewModel.setName(student.getName());
+		 */
+		System.out.println("Edit VM:-"+updateViewModel.getGender()+" "+updateViewModel.getName());
+		System.out.println(student);
+		//student= service.searchStudent(getEditId());
+		//System.out.println(student);
+		student.setGender(updateViewModel.getGender());
+		student.setName(updateViewModel.getName());
+		System.out.println(student.getGender()+" "+student.getGender()+" "+student.getName());
+		service.updateStudent(student);
 		return "success";
 	}
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		editStudent = StudentService.getInstance().searchStudent(editId);
+		//student = StudentService.getInstance().searchStudent(editId);
+		student= service.searchStudent(editId);
+		//System.out.println(student.getGender()+" "+student.getName());
+		updateViewModel.setGender(student.getGender());
+		updateViewModel.setName(student.getName());
+		//System.out.println(updateViewModel.getGender()+"  "+updateViewModel.getName());
 		return "success";
 	}
 
 	@Override
-	public Student getModel() {
+	public UpdateViewModel getModel() {
 		// TODO Auto-generated method stub
-		editStudent = new Student();
-		return editStudent;
+		
+		return updateViewModel;
 		
 		
 	}

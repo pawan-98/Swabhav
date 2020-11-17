@@ -11,6 +11,6 @@
 
 <%for(int i=0;i<5;i++){ %>
 <h1>Welcome <s:property value="developer"/></h1>
-<%} %>>
+<%} %>
 </body>
 </html>

@@ -37,8 +37,9 @@ public class StudentService {
 		}
 	}
 
-	public void addStudent(Student studentInfo) {
-		students.add(studentInfo);
+	public void addStudent(String name,String gender) {
+		
+		students.add(new Student(UUID.randomUUID().toString(),name,gender));
 	}
 	
 	public Student searchStudent(String id) {

@@ -10,5 +10,7 @@
 <body>
 <h1>Register</h1>
 <s:property value="message"/>
+<br>
+<a href="register">Register</a>
 </body>
 </html>

@@ -24,10 +24,9 @@ public class RegisterAction extends ActionSupport implements ModelDriven<Registe
 		if("".equals(vm.getName())) {
 			addFieldError("name", "Name cannot be empty");
 		}
-		if (vm.getAge()==0) {
-			addFieldError("age", "Age cannot be empty");
-		}
-		if("".equals(vm.getAddress())) {
+		/*
+		 * if (vm.getAge()==0) { addFieldError("age", "Age cannot be empty"); }
+		 */if("".equals(vm.getAddress())) {
 			addFieldError("address", "Address can not be empty");
 		}
 		
@@ -35,6 +34,7 @@ public class RegisterAction extends ActionSupport implements ModelDriven<Registe
 	
 	@Override
 	public String execute() throws Exception{
+		System.out.println("execute register");
 		return "success";
 	}
 	public String registerDo() {
@@ -44,6 +44,12 @@ public class RegisterAction extends ActionSupport implements ModelDriven<Registe
 		String addressMsg="Address: "+vm.getAddress();
 		detailsMessage+=nameMsg+"\n"+ageMsg+"\n"+addressMsg;
 		vm.setMessage(detailsMessage);
+		vm.setAge(1);
+		vm.setAddress("");
+		vm.setName("");
+		System.out.println("registerDo register");
 		return "success";
+		
+		
 	}
 }

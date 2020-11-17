@@ -7,44 +7,40 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.techlab.model.Student;
 import com.techlab.service.StudentService;
+import com.techlab.viewmodel.AddViewModel;
 
-public class AddStudentAction extends ActionSupport implements ModelDriven<Student>  {
-	private Student student;
-	private String name;
-	private String gender;
+public class AddStudentAction extends ActionSupport implements ModelDriven<AddViewModel>  {
+	private AddViewModel addViewModel;
 	
 
 	public AddStudentAction() {
 		// TODO Auto-generated constructor stub
-		student=new Student();
+		addViewModel=new AddViewModel();
 	}
 	@Override
-	public Student getModel() {
+	public AddViewModel getModel() {
 		// TODO Auto-generated method stub
-		return student;
+		return addViewModel;
 	}
 	
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		student.setId(UUID.randomUUID().toString());
-		StudentService.getInstance().addStudent(student);
 		return "success";
 	}
 	
-	public Student getStudent() {
-		return student;
+	public AddViewModel getStudent() {
+		return addViewModel;
 	}
-	public void setStudent(Student student) {
-		this.student = student;
+	public void setStudent(AddViewModel student) {
+		this.addViewModel = student;
 	}
 	
 	public String addDo() {
-		System.out.println(student.getGender());
-		System.out.println(student.getName());
+		StudentService.getInstance().addStudent(addViewModel.getName(), addViewModel.getGender());
 		
 		return "success";
-	}
+		}
 	
 
 	

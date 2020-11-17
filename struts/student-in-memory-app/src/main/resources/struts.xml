@@ -9,19 +9,25 @@
 			<interceptor name="myinterceptor"
 				class="com.techlab.interceptors.AuthenticationInterceptor"></interceptor>
 		</interceptors>
+		<action name="test">	
+			<result >/WEB-INF/index.jsp</result>
+		</action>
+		<action name="login">	
+			<result >login.jsp</result>
+		</action>
 		<action name="display"
-			class="com.techlab.action.DisplayStudentAction" method="execute">	
+			class="com.techlab.action.DisplayStudentAction" >	
 			<result name="success">student.jsp</result>
 		</action>
 		<action name="add"
-			class="com.techlab.action.AddStudentAction" method="addDo">
+			class="com.techlab.action.AddStudentAction" method="execute">
 			<interceptor-ref name = "params"></interceptor-ref>
 			<interceptor-ref name = "myinterceptor"></interceptor-ref>	
 			<result name="success">addForm.jsp</result>
 		</action>
 
 		<action name="doAdd"
-			class="com.techlab.action.AddStudentAction">
+			class="com.techlab.action.AddStudentAction" method="addDo">
 			<result name="success" type="chain">display</result>
 		</action>
 
@@ -44,7 +50,7 @@
 		<action name="loginDo" class="com.techlab.action.LoginAction"
 			method="loginDo">
 			<result name="success" type="chain">display</result>
-			<result name="input">index.jsp</result>
+			<result name="input">login.jsp</result>
 		</action>
 		<action name="logout" class="com.techlab.action.LogoutAction">
 			<interceptor-ref name = "params"></interceptor-ref>
