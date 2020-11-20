@@ -23,57 +23,58 @@ public class SubTaskRepository {
 	private SessionFactory factory;
 	
 	
-	private List<SubTask> tasks = new ArrayList<SubTask>();
+	private List<SubTask> subTasks = new ArrayList<SubTask>();
 	
-	public List<Task> getTasks() {
+	public List<SubTask> getSubTasks() {
 		Session session = factory.openSession();
 		try {
-			tasks = session.createQuery("from task").list();
+			subTasks = session.createQuery("from SubTask").list();
+			System.out.println("subtask list in repo:- "+subTasks);
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		} finally {
 			session.close();
 		}
 
-		return tasks;
+		return subTasks;
 	}
 	
-	public void deleteTask(String id) {
-		Task currentTask = searchTask(id);
+	public void deleteSubTask(String id) {
+		SubTask currentSubTask = searchSubTask(id);
 
-		factory.getCurrentSession().delete(currentTask);
+		factory.getCurrentSession().delete(currentSubTask);
 	}
 	
-	public Task searchTask(String id) {
-		getTasks();
-		for (Task taskInfo : tasks) {
-			if (taskInfo.getId().toString().equals(id)) {
+	public SubTask searchSubTask(String id) {
+		getSubTasks();
+		for (SubTask subTaskInfo : subTasks) {
+			if (subTaskInfo.getId().toString().equals(id)) {
 
-				return taskInfo;
+				return subTaskInfo;
 
 			}
 		}
 		return null;
 	}
 	
-	public void addTask(String title,Date date) {
-		Task addTask = new Task();
-		addTask.setDate(date);
-		addTask.setDone(false);
-		addTask.setId(UUID.randomUUID().toString());
-		addTask.setTitle(title);
-		factory.getCurrentSession().save(addTask);
+	public void addSubTask(String title,Date date,Task task) {
+		SubTask addSubTask = new SubTask();
+		addSubTask.setDate(date);
+		addSubTask.setDone(false);
+		addSubTask.setId(UUID.randomUUID().toString());
+		addSubTask.setTitle(title);
+		addSubTask.setTask(task);
+		factory.getCurrentSession().save(addSubTask);
 
 	}
 	
-	public void updateTask(Task taskUpdateInfo) {
-		Task currentTask = searchTask(taskUpdateInfo.getId());
-		currentTask.setDate(taskUpdateInfo.getDate());
-		currentTask.setDone(taskUpdateInfo.isDone());
-		currentTask.setSubTask(taskUpdateInfo.getSubTask());
-		currentTask.setTitle(taskUpdateInfo.getTitle());
+	public void updateSubTask(SubTask subTaskUpdateInfo) {
+		SubTask currentSubTask = searchSubTask(subTaskUpdateInfo.getId());
+		currentSubTask.setDate(subTaskUpdateInfo.getDate());
+		currentSubTask.setDone(subTaskUpdateInfo.isDone());
+		currentSubTask.setTitle(subTaskUpdateInfo.getTitle());
 
-		factory.getCurrentSession().update(currentTask);
+		factory.getCurrentSession().update(currentSubTask);
 		
 	}
 

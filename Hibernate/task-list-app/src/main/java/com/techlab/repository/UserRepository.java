@@ -46,7 +46,9 @@ public class UserRepository {
 	public User searchUser(String id) {
 		getUsers();
 		for (User userInfo : users) {
-			if (userInfo.getId().toString().equals(id)) {
+			System.out.println(userInfo.getId()+"  "+id);
+			System.out.println(userInfo.getId().equals(id));
+			if (userInfo.getId().equals(id)) {
 
 				return userInfo;
 

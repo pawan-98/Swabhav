@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Address = exports.Customer = void 0;
 var Customer = /** @class */ (function () {
     function Customer(_id, _name) {

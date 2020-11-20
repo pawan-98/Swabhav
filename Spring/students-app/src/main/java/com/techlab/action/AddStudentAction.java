@@ -41,7 +41,18 @@ public class AddStudentAction extends ActionSupport implements ModelDriven<AddVi
 		return "success";
 		}
 	
+	@Override
+	public void validate() {
+		if ("".equals(addViewModel.getName())) {
+			addFieldError("name", "Name cannot be empty");
+		}
 
+		
+		if ("".equals(addViewModel.getGender())) {
+			addFieldError("gender", "Gender can not be empty");
+		}
+
+	}
 	
 	
 

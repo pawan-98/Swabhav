@@ -5,7 +5,115 @@
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<package name="main" extends="struts-default">
-		
+		<action name="register"
+			class="com.techlab.action.AddUserAction">
+			<result name="success">register-form.jsp</result>
+			<result name="input">register-form.jsp</result>
+		</action>
+		<action name="registerDo" method="doAdd"
+			class="com.techlab.action.AddUserAction">
+			<result name="success" type="chain">displayUser</result>
+		</action>
+		<action name="displayUser"
+			class="com.techlab.action.DisplayUserAction">
+			<result name="success">user-display.jsp</result>
+		</action>
+		<action name="userUpdateForm"
+			class="com.techlab.action.EditUserAction">
+			<result name="success">user-edit.jsp</result>
+		</action>
+		<action name="updateDo"
+			class="com.techlab.action.EditUserAction" method="doEdit">
+			<result name="success" type="chain">displayUser</result>
+			<result name="input">user-edit.jsp</result>
+		</action>
+		<action name="deleteUser"
+			class="com.techlab.action.DeleteUserAction">
+			<result name="success" type="chain">displayUser</result>
+		</action>
+		<action name="task"
+			class="com.techlab.action.DisplayTaskAction">
+			<result name="success">task-display.jsp</result>
+		</action>
 
+		<action name="displayTask"
+			class="com.techlab.action.AddTaskAction">
+			<result name="success">task-display.jsp</result>
+		</action>
+
+		<action name="addTask" class="com.techlab.action.AddTaskAction">
+			<result name="success">task-add.jsp</result>
+		</action>
+
+		<action name="taskAddDo"
+			class="com.techlab.action.AddTaskAction" method="doAdd">
+			<result name="success" type="chain">task</result>
+			<result name="input">task-add.jsp</result>
+		</action>
+
+		<action name="taskEdit"
+			class="com.techlab.action.EditTaskAction">
+			<result name="success">task-edit.jsp</result>
+		</action>
+
+		<action name="taskEditDo"
+			class="com.techlab.action.EditTaskAction" method="doEdit">
+			<result name="success" type="chain">task</result>
+			<result name="input">task-edit.jsp</result>
+		</action>
+
+		<action name="deleteTask"
+			class="com.techlab.action.DeleteTaskAction">
+			<result name="success" type="chain">task</result>
+		</action>
+
+		<action name="subTaskDisplay"
+			class="com.techlab.action.SubTaskDisplayAction">
+			<result name="success">sub-task-display.jsp</result>
+		</action>
+
+		<action name="addSubTask"
+			class="com.techlab.action.SubTaskAddAction">
+			<result name="success">sub-task-add.jsp</result>
+		</action>
+
+
+		<action name="subTaskAddDo"
+			class="com.techlab.action.SubTaskAddAction" method="doAdd">
+			<result name="success" type="chain">subTaskDisplay</result>
+			<result name="input">sub-task-add.jsp</result>
+		</action>
+
+
+
+		<action name="subTaskEdit"
+			class="com.techlab.action.SubTaskEditAction">
+			<result name="success">sub-task-edit.jsp</result>
+		</action>
+
+		<action name="subTaskEditDo"
+			class="com.techlab.action.SubTaskEditAction" method="doEdit">
+			<result name="success" type="chain">subTaskDisplay</result>
+			<result name="input">sub-task-edit.jsp</result>
+		</action>
+
+		<action name="deleteSubTask"
+			class="com.techlab.action.SubTaskDeleteAction">
+			<result name="success" type="chain">subTaskDisplay</result>
+		</action>
+		<action name="login" class="com.techlab.action.LoginAction">
+			<result name="success">login.jsp</result>
+		</action>
+		
+		<action name="logout" class="com.techlab.action.LogoutAction">
+			<result name="success">logout.jsp</result>
+		</action>
+		
+		<action name="loginDo" class="com.techlab.action.LoginAction"
+			method="loginDo">
+			<result name="success" type="chain">displayUser</result>
+			<result name="input">login.jsp</result>
+		</action>
+		
 	</package>
 </struts>

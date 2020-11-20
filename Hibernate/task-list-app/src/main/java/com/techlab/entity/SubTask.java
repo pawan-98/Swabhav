@@ -20,8 +20,6 @@ public class SubTask {
 	@JoinColumn
 	private Task task;
 
-	
-
 	public Task getTask() {
 		return task;
 	}

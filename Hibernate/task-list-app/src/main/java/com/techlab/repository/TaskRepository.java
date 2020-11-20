@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.techlab.entity.Task;
+import com.techlab.entity.User;
 
 @Repository
 @Transactional
@@ -27,7 +28,9 @@ public class TaskRepository {
 	public List<Task> getTasks() {
 		Session session = factory.openSession();
 		try {
-			tasks = session.createQuery("from task").list();
+			System.out.println("task Repo");
+			tasks = session.createQuery("from Task").list();
+			System.out.println(tasks);
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		} finally {
@@ -55,12 +58,14 @@ public class TaskRepository {
 		return null;
 	}
 	
-	public void addTask(String title,Date date) {
+	public void addTask(String title,Date date,User user) {
 		Task addTask = new Task();
 		addTask.setDate(date);
 		addTask.setDone(false);
 		addTask.setId(UUID.randomUUID().toString());
 		addTask.setTitle(title);
+		addTask.setUser(user);
+		//addTask.setUser(user);
 		factory.getCurrentSession().save(addTask);
 
 	}

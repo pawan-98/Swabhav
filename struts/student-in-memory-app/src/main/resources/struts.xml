@@ -16,13 +16,17 @@
 			<result >login.jsp</result>
 		</action>
 		<action name="display"
-			class="com.techlab.action.DisplayStudentAction" >	
+			class="com.techlab.action.DisplayStudentAction" >
+			<interceptor-ref name = "params"></interceptor-ref>
+			<interceptor-ref name = "myinterceptor"></interceptor-ref>	
+			<result name="input">login.jsp</result>	
 			<result name="success">student.jsp</result>
 		</action>
 		<action name="add"
 			class="com.techlab.action.AddStudentAction" method="execute">
 			<interceptor-ref name = "params"></interceptor-ref>
 			<interceptor-ref name = "myinterceptor"></interceptor-ref>	
+			<result name="input">login.jsp</result>
 			<result name="success">addForm.jsp</result>
 		</action>
 
@@ -41,6 +45,9 @@
 
 		<action name="updateForm"
 			class="com.techlab.action.EditStudentAction" method="execute">
+			<interceptor-ref name = "params"></interceptor-ref>
+			<interceptor-ref name = "myinterceptor"></interceptor-ref>	
+			<result name="input">login.jsp</result>
 			<result name="success">edit.jsp</result>
 		</action>
 		<action name="update"

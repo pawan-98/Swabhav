@@ -3,12 +3,13 @@ package com.techlab.action;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.techlab.model.Student;
 import com.techlab.modelview.UpdateViewModel;
 import com.techlab.service.StudentService;
 
-public class EditStudentAction implements Action,ModelDriven<UpdateViewModel> {
+public class EditStudentAction extends ActionSupport implements ModelDriven<UpdateViewModel> {
 	private String editId;
 	private UpdateViewModel updateViewModel;
 	private static Student student;
@@ -64,6 +65,18 @@ public class EditStudentAction implements Action,ModelDriven<UpdateViewModel> {
 		updateViewModel.setName(student.getName());
 		//System.out.println(updateViewModel.getGender()+"  "+updateViewModel.getName());
 		return "success";
+	}
+	@Override
+	public void validate() {
+		if ("".equals(updateViewModel.getName())) {
+			addFieldError("name", "Name cannot be empty");
+		}
+
+		
+		if ("".equals(updateViewModel.getGender())) {
+			addFieldError("gender", "Gender can not be empty");
+		}
+
 	}
 
 	@Override

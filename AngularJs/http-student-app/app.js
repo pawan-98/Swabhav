@@ -1,5 +1,3 @@
-
-
 angular.module('modA', ['ngRoute'])
     .factory("IdFactory", function () {
         var factory = {}

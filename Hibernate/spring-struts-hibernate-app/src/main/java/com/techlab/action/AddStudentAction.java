@@ -34,7 +34,18 @@ public class AddStudentAction extends ActionSupport implements ModelDriven<AddVi
 	public void setStudent(AddViewModel student) {
 		this.addViewModel = student;
 	}
-	
+	@Override
+	public void validate() {
+		if ("".equals(addViewModel.getName())) {
+			addFieldError("name", "Name cannot be empty");
+		}
+
+		
+		if ("".equals(addViewModel.getGender())) {
+			addFieldError("gender", "Gender can not be empty");
+		}
+
+	}
 	public String addDo() {
 		studentService.addStudent(addViewModel.getName(), addViewModel.getGender());
 		
