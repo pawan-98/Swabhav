@@ -4,6 +4,7 @@
     "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
     "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+	<constant name="struts.action.excludePattern" value="/botdetectcaptcha"/>
 	<package name="main" extends="struts-default">
 		<action name="register"
 			class="com.techlab.action.AddUserAction">
@@ -13,6 +14,7 @@
 		<action name="registerDo" method="doAdd"
 			class="com.techlab.action.AddUserAction">
 			<result name="success" type="chain">displayUser</result>
+			<result name="input">register-form.jsp</result>
 		</action>
 		<action name="displayUser"
 			class="com.techlab.action.DisplayUserAction">
