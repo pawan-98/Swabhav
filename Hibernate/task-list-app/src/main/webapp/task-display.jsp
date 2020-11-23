@@ -37,10 +37,10 @@
 					<th scope="col">Title</th>
 					<th scope="col">Done</th>
 					<th scope="col">Date</th>
-					
 					<th scope="col">Sub Task</th>
 					<th scope="col">Edit</th>
 					<th scope="col">Delete</th>
+					<th scope="col">Total Sub Tasks</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -71,6 +71,7 @@
 								<s:hidden name="taskId" value="%{id}"></s:hidden>
 								<s:submit class="btn btn-info" value="delete"></s:submit>
 							</s:form></td>
+						<td><s:property value="%{subTask.size()}" /></td>
 					</tr>
 				</s:iterator>
 			</tbody>

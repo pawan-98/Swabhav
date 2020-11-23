@@ -41,10 +41,11 @@
 		</div>
 		<div class="form-group">
 			<s:textfield name="username" label="User Name:- "></s:textfield>
-		</div>
+		</div>	
+		<s:checkbox name="blocked"  label="Blocked:-"></s:checkbox>
+			<s:textfield name="password"  label="Password" />
 		
-		<s:textfield name="password"  label="Password" />
-
+			
 		<s:submit class="btn btn-primary" value="Submit"></s:submit>
 	</s:form>
 </body>

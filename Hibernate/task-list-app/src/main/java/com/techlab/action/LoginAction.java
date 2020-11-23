@@ -13,6 +13,7 @@ import com.techlab.service.UserService;
 public class LoginAction extends ActionSupport implements SessionAware {
 	private String usermame;
 	private String password;
+	private boolean role;
 	private String message;
 	private SessionMap<String,Object> sessionMap;
 	@Autowired
@@ -34,9 +35,14 @@ public class LoginAction extends ActionSupport implements SessionAware {
 			message="Password is required ";
 			return "input";
 		}
-		else if (userService.checkAuthentication(getUsermame(),getPassword())==false) {
-			message="Incorrect Username or Pasword";
+		
+		else if (userService.checkAuthentication(getUsermame(),getPassword())==false && role==true) {
+			message="Incorrect Username or Pasword or blocked";
 			return "input";
+		}
+		else if (role==false) {
+			
+			return "display";
 		}
 		return "success";
 		
@@ -65,6 +71,14 @@ public class LoginAction extends ActionSupport implements SessionAware {
 
 	public void setUsermame(String usermame) {
 		this.usermame = usermame;
+	}
+
+	public boolean isRole() {
+		return role;
+	}
+
+	public void setRole(boolean role) {
+		this.role = role;
 	}
 
 	@Override

@@ -77,6 +77,7 @@ public class UserRepository {
 		currentUser.setLastName(userUpdateInfo.getLastName());
 		currentUser.setPassword(userUpdateInfo.getPassword());
 		currentUser.setTask(userUpdateInfo.getTask());
+		currentUser.setBlocked(userUpdateInfo.isBlocked());
 
 		factory.getCurrentSession().update(currentUser);
 		

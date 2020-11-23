@@ -6,6 +6,9 @@ public class UserUpdateViewModel {
 	private String email;
 	private String username;
 	private String password;
+	private boolean blocked; 
+	
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -25,7 +28,6 @@ public class UserUpdateViewModel {
 		this.email = email;
 	}
 	
-
 	public String getUsername() {
 		return username;
 	}
@@ -37,6 +39,13 @@ public class UserUpdateViewModel {
 	}
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public boolean isBlocked() {
+		return blocked;
+	}
+	public void setBlocked(boolean blocked) {
+		this.blocked = blocked;
 	}
 	
 

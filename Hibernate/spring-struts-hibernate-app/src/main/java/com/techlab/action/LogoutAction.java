@@ -21,6 +21,7 @@ public class LogoutAction implements Action,SessionAware {
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		this.sessionMap = (SessionMap<String, Object>) ActionContext.getContext().getSession();
+		
 		sessionMap.put("status", null);
 		return "success";
 	}

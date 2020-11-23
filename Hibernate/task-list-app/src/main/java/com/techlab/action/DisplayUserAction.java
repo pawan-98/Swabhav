@@ -16,11 +16,14 @@ public class DisplayUserAction implements Action {
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		users= userService.getUsers();
+		
 		return "success";
 	}
+	
 	public List<User> getUsers() {
 		return users;
 	}
+	
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}

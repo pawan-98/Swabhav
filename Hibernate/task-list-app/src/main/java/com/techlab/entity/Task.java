@@ -25,7 +25,7 @@ public class Task {
 	@JoinColumn
 	private User user;
 	
-	@OneToMany(mappedBy = "task",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "task",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	private Set<SubTask> subTask= new HashSet<SubTask>();
 	
 	

@@ -32,6 +32,8 @@ public class EditUserAction extends ActionSupport implements ModelDriven<UserUpd
 		userUpdateViewModel.setLastName(user.getLastName());
 		userUpdateViewModel.setUsername(user.getUsermame());
 		userUpdateViewModel.setPassword(user.getPassword());
+		System.out.println("Blocked:-"+user.isBlocked());
+		userUpdateViewModel.setBlocked(user.isBlocked());
 		System.out.println(user.getFirstName());
 		return "success";
 	}
@@ -73,6 +75,8 @@ public class EditUserAction extends ActionSupport implements ModelDriven<UserUpd
 		user.setLastName(userUpdateViewModel.getLastName());
 		user.setPassword(userUpdateViewModel.getPassword());
 		user.setUsermame(userUpdateViewModel.getUsername());
+		user.setBlocked(userUpdateViewModel.isBlocked());
+		System.out.println("Blocked uvm:-"+userUpdateViewModel.isBlocked());
 		service.updateStudent(user);
 		return "success";
 	}
